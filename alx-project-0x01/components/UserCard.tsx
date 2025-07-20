@@ -1,21 +1,20 @@
-// components/UserCard.jsx
+// components/common/UserCard.tsx
 
 import React from "react";
+import { UserProps } from "../../interfaces";
 
-export default function UserCard({ user }) {
+const UserCard: React.FC<{ user: UserProps }> = ({ user }) => {
   return (
-    <div className="bg-white rounded-xl shadow-md p-4 flex items-center space-x-4 hover:shadow-lg transition-shadow duration-300">
+    <div className="bg-white rounded-xl shadow-md p-6 w-full max-w-md mx-auto hover:shadow-lg transition">
       <img
-        src={user.avatar}
-        alt={`${user.full_name}'s avatar`}
-        className="w-16 h-16 rounded-full object-cover"
+        src={`https://i.pravatar.cc/150?u=${user.id}`}
+        alt={user.name}
+        className="w-20 h-20 rounded-full mx-auto mb-4"
       />
-      <div>
-        <h2 className="text-lg font-semibold text-gray-800">
-          {user.full_name}
-        </h2>
-        <p className="text-sm text-gray-500">{user.email}</p>
-      </div>
+      <h2 className="text-xl font-semibold text-center">{user.name}</h2>
+      <p className="text-gray-600 text-center">{user.email}</p>
     </div>
   );
-}
+};
+
+export default UserCard;

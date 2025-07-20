@@ -1,25 +1,20 @@
-// pages/index.jsx
+// pages/index.tsx
 
-import Head from "next/head";
-import UserCard from "@/components/UserCard";
+import React from "react";
+import Header from "../components/Header";
 
-export default function Home() {
-  const sampleUser = {
-    full_name: "Amira Abdurahman",
-    email: "amira@example.com",
-    avatar: "https://i.pravatar.cc/150?img=3"
-  };
-
+const Home: React.FC = () => {
   return (
     <>
-      <Head>
-        <title>User Card Demo</title>
-      </Head>
-      <main className="min-h-screen bg-gray-100 p-6">
-        <div className="max-w-md mx-auto">
-          <UserCard user={sampleUser} />
+      <Header />
+      <main className="min-h-screen flex items-center justify-center bg-gray-100">
+        <div className="text-center">
+          <h1 className="text-4xl font-bold mb-4">Welcome to our Application!</h1>
+          <p className="text-gray-600">Navigate to /users to see the user cards.</p>
         </div>
       </main>
     </>
   );
-}
+};
+
+export default Home;

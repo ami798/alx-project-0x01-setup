@@ -1,3 +1,6 @@
+// components/common/Postcard.tsx
+
+
 import { PostProps } from "@/interfaces";
 
 const PostCard: React.FC<PostProps> = ({ title, body, userId, id }) => {
