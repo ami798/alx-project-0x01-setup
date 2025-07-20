@@ -1,7 +1,4 @@
-// pages/users/index.tsx
 
-
-// index page for Users related pages
 import React from 'react';
 import Header from "@/components/layout/Header";
 import { UserProps, UserData } from "@/interfaces";
@@ -21,7 +18,7 @@ const Users: React.FC<UserProps[]> = ({ posts }) => {
             <Header />
             <main className="p-4">
                 <div className="flex justify-between">
-                    <h1 className=" text-2xl font-semibold">User List</h1>
+                    <h1 className=" text-2xl font-semibold">Users List</h1>
                     <button onClick={()=>setModalOpen(true)} className="bg-blue-700 px-4 py-2 rounded-full text-white">Add User</button>
                 </div>
                 <div className="grid grid-cols-3 gap-2 ">
