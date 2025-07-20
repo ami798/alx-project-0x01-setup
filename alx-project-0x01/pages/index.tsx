@@ -1,13 +1,25 @@
-import Layout from "@/components/layout/Layout";
+// pages/index.jsx
 
-const Home: React.FC = () => {
+import Head from "next/head";
+import UserCard from "@/components/UserCard";
+
+export default function Home() {
+  const sampleUser = {
+    full_name: "Amira Abdurahman",
+    email: "amira@example.com",
+    avatar: "https://i.pravatar.cc/150?img=3"
+  };
+
   return (
-    <Layout>
-      <div className="flex justify-center items-center h-[80vh]">
-        <h1 className="text-7xl font-thin">Welcome Page</h1>
-      </div>
-    </Layout>
+    <>
+      <Head>
+        <title>User Card Demo</title>
+      </Head>
+      <main className="min-h-screen bg-gray-100 p-6">
+        <div className="max-w-md mx-auto">
+          <UserCard user={sampleUser} />
+        </div>
+      </main>
+    </>
   );
-};
-
-export default Home;
+}

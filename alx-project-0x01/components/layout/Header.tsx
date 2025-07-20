@@ -1,31 +1,23 @@
-import Link from "next/link";
-import { useRouter } from "next/router";
+import Link from 'next/link'; 
 
 const Header: React.FC = () => {
-  const { pathname } = useRouter();
-
   return (
-    <header className="bg-black text-white px-6 py-4">
-      <nav className="flex space-x-6">
-        <Link
-          href="/"
-          className={pathname === "/" ? "underline text-blue-400" : ""}
-        >
-          Home
-        </Link>
-        <Link
-          href="/users"
-          className={pathname === "/users" ? "underline text-blue-400" : ""}
-        >
-          Users
-        </Link>
-        <Link
-          href="/posts"
-          className={pathname === "/posts" ? "underline text-blue-400" : ""}
-        >
-          Posts
-        </Link>
-      </nav>
+    <header className="bg-blue-600 text-white shadow-md py-4">
+      <div className="container mx-auto flex justify-between items-center px-4">
+        <h3 className="font-bold text-2xl">
+          <Link href="/">Daily Contents</Link>
+        </h3>
+        <nav>
+          <ul className="flex space-x-6">
+            <li className="hover:underline">
+              <Link href="/posts">Posts</Link>
+            </li>
+            <li className="hover:underline">
+              <Link href="/users">Users</Link>
+            </li>
+          </ul>
+        </nav>
+      </div>
     </header>
   );
 };

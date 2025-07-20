@@ -1,22 +1,41 @@
-import Layout from "@/components/layout/Layout";
-import Card from "@/components/ui/Card";
+import PostCard from "@/components/common/PostCard";
+import Header from "@/components/layout/Header";
+import { PostProps } from "@/interfaces";
 
-const posts = [
-  { id: 1, title: "Introducing Portafy", description: "Turn resumes into live portfolios instantly." },
-  { id: 2, title: "Next.js Tips", description: "Boost your app performance with built-in optimization." },
-];
+interface PostsPageProps {
+  posts: PostProps[];
+}
 
-const PostsPage = () => {
+const Posts: React.FC<PostsPageProps> = ({ posts }) => {
   return (
-    <Layout>
-      <h1 className="text-3xl font-bold mb-6">Posts</h1>
-      <div className="space-y-4">
-        {posts.map((post) => (
-          <Card key={post.id} title={post.title} description={post.description} />
-        ))}
-      </div>
-    </Layout>
+    <div className="flex flex-col h-screen">
+      <Header />
+      <main className="p-4">
+        <div className="flex justify-between items-center mb-4">
+          <h1 className="text-2xl font-semibold">Post Content</h1>
+          <button className="bg-blue-700 px-4 py-2 rounded-full text-white">
+            Add Post
+          </button>
+        </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          {posts?.map((post: PostProps, index: number) => (
+            <PostCard key={index} {...post} />
+          ))}
+        </div>
+      </main>
+    </div>
   );
 };
 
-export default PostsPage;
+export async function getStaticProps() {
+  const response = await fetch("https://jsonplaceholder.typicode.com/posts");
+  const posts = await response.json();
+
+  return {
+    props: {
+      posts,
+    },
+  };
+}
+
+export default Posts;

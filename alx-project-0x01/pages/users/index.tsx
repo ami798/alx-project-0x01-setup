@@ -1,5 +1,6 @@
 import Layout from "@/components/layout/Layout";
 import Card from "@/components/ui/Card";
+import Header from "@/components/layout/Header";
 
 const users = [
   { id: 1, name: "Amira", description: "Software Developer from Ethiopia." },
